@@ -3,48 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Faculty Directory</title>
+
+    <title>Faculty Directory | School of Science and Technology</title>
 
     <style>
+
+        /* =========================
+           GENERAL PAGE
+        ========================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
             margin: 0;
-            background: #f5f5f5;
+            background: #f5f6f7;
             color: #333;
         }
+
+
+        /* =========================
+           HEADER
+        ========================= */
 
         header {
             background: #1f4d3a;
             color: white;
             text-align: center;
-            padding: 40px 20px;
+            padding: 50px 20px 45px;
+        }
+
+        .university-name {
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 1.5px;
+            margin: 0 0 10px;
+            text-transform: uppercase;
+        }
+
+        .school-name {
+            font-size: 23px;
+            font-weight: 500;
+            margin: 0 0 25px;
+            letter-spacing: 0.5px;
         }
 
         header h1 {
             margin: 0;
-            font-size: 36px;
+            font-size: 40px;
+            font-weight: 700;
+            letter-spacing: 1px;
         }
 
-        header p {
+        .department-name {
             font-size: 18px;
-            margin-top: 10px;
+            margin-top: 12px;
+            opacity: 0.95;
         }
+
+
+        /* =========================
+           MAIN CONTAINER
+        ========================= */
 
         .container {
             max-width: 1100px;
-            margin: 30px auto;
+            margin: 35px auto;
             padding: 0 20px;
         }
 
+
+        /* =========================
+           SEARCH
+        ========================= */
+
+        .search-title {
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 20px;
+            color: #1f4d3a;
+        }
+
         .search-box {
+            display: block;
             width: 100%;
-            padding: 15px;
+            padding: 15px 18px;
             font-size: 16px;
             border: 1px solid #ccc;
             border-radius: 8px;
-            box-sizing: border-box;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
+            outline: none;
         }
+
+        .search-box:focus {
+            border-color: #1f4d3a;
+            box-shadow: 0 0 5px rgba(31, 77, 58, 0.2);
+        }
+
+
+        /* =========================
+           FACULTY GRID
+        ========================= */
 
         .faculty-grid {
             display: grid;
@@ -52,131 +113,320 @@
             gap: 25px;
         }
 
+
+        /* =========================
+           FACULTY CARD
+        ========================= */
+
         .faculty-card {
             background: white;
             border-radius: 12px;
-            padding: 25px;
+            padding: 28px 20px;
             text-align: center;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .faculty-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 7px 18px rgba(0, 0, 0, 0.12);
         }
 
         .faculty-card img {
-            width: 130px;
-            height: 130px;
+            width: 140px;
+            height: 140px;
             border-radius: 50%;
             object-fit: cover;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
+            border: 4px solid #e7ece9;
         }
 
         .faculty-card h2 {
-            margin: 10px 0 5px;
+            margin: 8px 0;
             font-size: 21px;
+            color: #1f4d3a;
         }
 
         .faculty-card p {
-            margin: 6px 0;
+            margin: 7px 0;
+            line-height: 1.5;
         }
 
         .position {
             font-weight: bold;
+            color: #444;
         }
+
+        .specialization {
+            font-size: 15px;
+            color: #666;
+        }
+
+
+        /* =========================
+           PROFILE BUTTON
+        ========================= */
 
         .profile-button {
             display: inline-block;
-            margin-top: 15px;
-            padding: 10px 18px;
+            margin-top: 17px;
+            padding: 10px 20px;
             background: #1f4d3a;
             color: white;
             text-decoration: none;
             border-radius: 6px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: background 0.2s ease;
         }
 
         .profile-button:hover {
-            opacity: 0.85;
+            background: #16382b;
         }
 
+
+        /* =========================
+           FOOTER
+        ========================= */
+
         footer {
-            margin-top: 50px;
-            padding: 25px;
+            margin-top: 60px;
+            padding: 30px 20px;
             background: #1f4d3a;
             color: white;
             text-align: center;
         }
+
+        footer p {
+            margin: 5px 0;
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           MOBILE DISPLAY
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            header {
+                padding: 40px 15px;
+            }
+
+            .university-name {
+                font-size: 15px;
+            }
+
+            .school-name {
+                font-size: 19px;
+            }
+
+            header h1 {
+                font-size: 30px;
+            }
+
+            .department-name {
+                font-size: 16px;
+            }
+
+            .container {
+                margin-top: 25px;
+                padding: 0 15px;
+            }
+
+            .faculty-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
     </style>
 </head>
 
+
 <body>
 
+
+<!-- =========================
+     HEADER
+========================= -->
+
 <header>
-    <p>Centro Escolar University</p>
-    <h2>School of Science and Technology</h2>
-    <h1>Faculty Directory</h1>
-    <p>Department of Biology</p>
+
+    <p class="university-name">
+        Centro Escolar University
+    </p>
+
+    <p class="school-name">
+        School of Science and Technology
+    </p>
+
+    <h1>
+        Faculty Directory
+    </h1>
+
+    <p class="department-name">
+        Department of Biology
+    </p>
+
 </header>
-    
+
+
+
+<!-- =========================
+     MAIN CONTENT
+========================= -->
+
 <div class="container">
+
+
+    <h2 class="search-title">
+        Find a Faculty Member
+    </h2>
+
 
     <input
         type="text"
         id="search"
         class="search-box"
-        placeholder="Search faculty by name or specialization..."
+        placeholder="Search by name, position, or specialization..."
         onkeyup="searchFaculty()"
     >
 
+
+    <!-- =========================
+         FACULTY LIST
+    ========================= -->
+
     <div class="faculty-grid" id="facultyList">
 
+
+        <!-- FACULTY MEMBER 1 -->
+
         <div class="faculty-card">
-            <img src="https://via.placeholder.com/130" alt="Faculty Photo">
 
-            <h2>Dr. Faculty Member 1</h2>
+            <img
+                src="https://via.placeholder.com/140"
+                alt="Faculty Photo"
+            >
 
-            <p class="position">Assistant Professor</p>
+            <h2>
+                Dr. Faculty Member 1
+            </h2>
 
-            <p>Specialization: Microbiology</p>
+            <p class="position">
+                Assistant Professor
+            </p>
 
-            <a href="#" class="profile-button">
+            <p class="specialization">
+                Specialization: Microbiology
+            </p>
+
+            <a
+                href="#"
+                class="profile-button"
+            >
                 View Profile
             </a>
+
         </div>
 
 
+
+        <!-- FACULTY MEMBER 2 -->
+
         <div class="faculty-card">
-            <img src="https://via.placeholder.com/130" alt="Faculty Photo">
 
-            <h2>Dr. Faculty Member 2</h2>
+            <img
+                src="https://via.placeholder.com/140"
+                alt="Faculty Photo"
+            >
 
-            <p class="position">Associate Professor</p>
+            <h2>
+                Dr. Faculty Member 2
+            </h2>
 
-            <p>Specialization: Botany</p>
+            <p class="position">
+                Associate Professor
+            </p>
 
-            <a href="#" class="profile-button">
+            <p class="specialization">
+                Specialization: Botany
+            </p>
+
+            <a
+                href="#"
+                class="profile-button"
+            >
                 View Profile
             </a>
+
         </div>
 
 
+
+        <!-- FACULTY MEMBER 3 -->
+
         <div class="faculty-card">
-            <img src="https://via.placeholder.com/130" alt="Faculty Photo">
 
-            <h2>Dr. Faculty Member 3</h2>
+            <img
+                src="https://via.placeholder.com/140"
+                alt="Faculty Photo"
+            >
 
-            <p class="position">Professor</p>
+            <h2>
+                Dr. Faculty Member 3
+            </h2>
 
-            <p>Specialization: Zoology</p>
+            <p class="position">
+                Professor
+            </p>
 
-            <a href="#" class="profile-button">
+            <p class="specialization">
+                Specialization: Zoology
+            </p>
+
+            <a
+                href="#"
+                class="profile-button"
+            >
                 View Profile
             </a>
+
         </div>
+
 
     </div>
+
 </div>
 
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
-    <p>Faculty Directory | Department of Biology</p>
+
+    <p>
+        Centro Escolar University
+    </p>
+
+    <p>
+        School of Science and Technology
+    </p>
+
+    <p>
+        Faculty Directory | Department of Biology
+    </p>
+
 </footer>
 
+
+
+<!-- =========================
+     SEARCH FUNCTION
+========================= -->
 
 <script>
 
@@ -190,21 +440,30 @@ function searchFaculty() {
     let cards = document
         .getElementsByClassName("faculty-card");
 
+
     for (let i = 0; i < cards.length; i++) {
 
         let text = cards[i]
             .innerText
             .toLowerCase();
 
+
         if (text.includes(input)) {
+
             cards[i].style.display = "";
+
         } else {
+
             cards[i].style.display = "none";
+
         }
+
     }
+
 }
 
 </script>
+
 
 </body>
 </html>
